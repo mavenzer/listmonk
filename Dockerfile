@@ -1,4 +1,4 @@
-# Use an official Alpine runtime as a parent image
+# Pulling the ALPINE base image
 FROM alpine:latest
 
 # Set the working directory in the container
