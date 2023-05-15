@@ -1,8 +1,17 @@
+# Use an official Alpine runtime as a parent image
 FROM alpine:latest
-RUN apk --no-cache add ca-certificates tzdata
+
+# Set the working directory in the container
 WORKDIR /listmonk
-COPY listmonk .
-COPY config.toml.sample config.toml
-COPY config-demo.toml .
-CMD ["./listmonk"]
+
+# Install any needed packages
+RUN apk --no-cache add ca-certificates tzdata
+
+# Copying Files to the working directory
+COPY listmonk config.toml.sample config-demo.toml ./
+
+# Exposing the PORT
 EXPOSE 9000
+
+
+CMD ["./listmonk"]
